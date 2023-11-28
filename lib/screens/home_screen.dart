@@ -1,12 +1,15 @@
 import 'dart:math';
-
+import 'package:app_prueba/screens/point_screen.dart';
 import 'package:flutter/material.dart';
+
 
 class Homescreen extends StatefulWidget {
 
   @override
   State<Homescreen> createState() => _HomescreenState();
 }
+
+
 
 class _HomescreenState extends State<Homescreen> {
 
@@ -50,8 +53,10 @@ class _HomescreenState extends State<Homescreen> {
         title: Text('Aciertos $aciertos'),
         elevation: 0,
       ),
-      body: Column(children:[
+      body: Column(children:
+      
 
+      [  
         // titulo
         Spacer(),
         Text(colorAcertado ? "Adivinaste!" : "Intenta mezclar este color"),
@@ -91,8 +96,10 @@ class _HomescreenState extends State<Homescreen> {
       //* Tabs
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
+        
         onTap: (index) {
 
+          
           // boton reset 
           if (index == 0)
           {
@@ -122,6 +129,13 @@ class _HomescreenState extends State<Homescreen> {
             }
           }
           
+          if (index == 2){
+            Navigator.push
+            (context, MaterialPageRoute(builder: (context)=> point_screen()
+             )
+            );
+          }
+
           // actualizar la pantalla
           setState(() {});
         },
@@ -137,6 +151,10 @@ class _HomescreenState extends State<Homescreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.check_circle),
             label: "check"
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: "puntuaciones"
           ),
         ],
       ),

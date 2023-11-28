@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 //texto ejemplo para ver si funciona git
+// cabeza de termo
 class MyApp extends StatelessWidget {
   
   @override

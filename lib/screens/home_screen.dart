@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:app_prueba/screens/point_screen.dart';
+import 'package:app_color/screens/point_screen.dart';
 import 'package:flutter/material.dart';
 
 

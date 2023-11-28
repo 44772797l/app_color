@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+//texto ejemplo para ver si funciona git
 class MyApp extends StatelessWidget {
   
   @override
@@ -15,4 +16,5 @@ class MyApp extends StatelessWidget {
   }
 
 }
+
 

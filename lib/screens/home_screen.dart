@@ -1,5 +1,6 @@
 import 'dart:math';
-import 'package:app_color/screens/point_screen.dart';
+import 'package:app_color/score_controller.dart';
+import 'package:app_color/screens/score_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -42,15 +43,13 @@ class _HomescreenState extends State<Homescreen> {
 
   // si el jugador ha acertado
   bool colorAcertado = false;
-  // cantidad aciertos
-  int aciertos = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //* AppBar
       appBar: AppBar(
-        title: Text('Aciertos $aciertos'),
+        title: Text('Aciertos ${ScoreController.score}'),
         elevation: 0,
       ),
       body: Column(children:
@@ -97,7 +96,7 @@ class _HomescreenState extends State<Homescreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
         
-        onTap: (index) {
+        onTap: (index) async {
 
           
           // boton reset 
@@ -125,14 +124,14 @@ class _HomescreenState extends State<Homescreen> {
             // si la distancia es poca se ha acertado
             if (distanciaColor <= 50 && !colorAcertado) {
               colorAcertado = true;
-              aciertos++;
+              ScoreController.score++;
+              await ScoreController.saveScore();
             }
           }
           
           if (index == 2){
-            Navigator.push
-            (context, MaterialPageRoute(builder: (context)=> point_screen()
-             )
+            Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ScoreScreen())
             );
           }
 

@@ -155,6 +155,10 @@ class _ScoreScreenState extends State<ScoreScreen> {
 
     List<TableRow> tableRows = [];
     for (var score in scores) {
+      if (score["usuario"] == null || score["puntaje"] == null) {
+        continue;
+      }
+      
       TableRow row = createRow(score["usuario"], score["puntaje"]);
       tableRows.add(row);
     }
